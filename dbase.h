@@ -1,14 +1,15 @@
 #ifndef DBASE_H
 #define DBASE_H
 
-#include <QSqlDatabase>
+#include <QtSql>    //Заголовок для БД
+#include <QDebug>
 
 class DBase
 {
 public:
     DBase();
 private:
-    QSqlDatabase cartridge;
+    QSqlDatabase db;
 };
 
 #endif // DBASE_H

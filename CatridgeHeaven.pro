@@ -1,10 +1,10 @@
 #HELLO CATRIDGEBASE
 
 QT+=widgets
-QT+=sql
+QT+=sql #Без него БД работать не будут
 
 TEMPLATE = app
-TARGET = CatridgeHeaven
+TARGET = CartridgeHeaven
 INCLUDEPATH += .
 CONFIG-=app_bundle
 
