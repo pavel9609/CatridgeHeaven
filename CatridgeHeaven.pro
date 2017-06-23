@@ -15,7 +15,8 @@ SOURCES += \
 
 HEADERS += \
     mainwindow.h \
-    dbase.h
+    dbase.h \
+    exception.h
 
 FORMS += \
     mainwindow.ui
