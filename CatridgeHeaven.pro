@@ -3,6 +3,9 @@
 QT+=widgets
 
 TEMPLATE = app
-TARGET = FileCommander
+TARGET = CatridgeHeaven
 INCLUDEPATH += .
 CONFIG-=app_bundle
+
+SOURCES += \
+    main.cpp
