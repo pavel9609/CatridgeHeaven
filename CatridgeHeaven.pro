@@ -8,4 +8,11 @@ INCLUDEPATH += .
 CONFIG-=app_bundle
 
 SOURCES += \
-    main.cpp
+    main.cpp \
+    mainwindow.cpp
+
+HEADERS += \
+    mainwindow.h
+
+FORMS += \
+    mainwindow.ui
