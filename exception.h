@@ -5,7 +5,7 @@
 class Exception{
 public:
     Exception(QString error){_Error = error;}   //Чтобы можно было искать где вылетело
-    QString Error(){return _Error;}
+    QString Error(){return _Error;} //Вывод ошибки
 private:
     QString _Error;
 };
