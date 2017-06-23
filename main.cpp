@@ -8,6 +8,7 @@ int main(int argc, char** argv)
     qDebug()<<"Hello Git 2";
     qDebug()<<"Skoro obedcss!";
     //sdsjdbxscscscxzxzx
+    //sdljsldk
     MainWindow w;
     w.show();
     return app.exec();
