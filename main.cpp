@@ -5,7 +5,7 @@
 int main(int argc, char** argv)
 {
     QApplication app(argc,argv);
-    qDebug()<<"Hello Git 2";
+    qDebug()<<"Hello Git 2";//c vbnm,cvb
     qDebug()<<"Skoro obed!";
     MainWindow w;
     w.show();
