@@ -5,11 +5,10 @@ DBase::DBase()
     try //Чтобы облегчить сброс, если что-то не так
     {
         db = QSqlDatabase::addDatabase("QSQLITE");    //Добавляем базу, метод может быть только статических
-        if (!db.isValid()) throw Exception("Valid");
-        db.setDatabaseName(QDir::currentPath()+"/Cartridge.sqlite");
+        if (!db.isValid()) throw Exception("Valid");    //Если что-то не получается
+        db.setDatabaseName(QDir::currentPath()+"/Cartridge.sqlite");    //Отправляем к исполняемому файлу
         if (!db.open()) throw Exception("Open");    //Открываем и кричим, если что-то не так.
         query = new QSqlQuery(db);  //Связываем запрос с базой
-        if (!createTables())  throw Exception("Create table error");
     }
     catch(Exception e)
     {
@@ -17,6 +16,7 @@ DBase::DBase()
         else qDebug()<<e.Error()<<query->lastError().text(); //Ошибка, которую мы указали и ошибка базы данных
     }
 }
+/*
 bool DBase::createTables()
 {
     try //Чтобы облегчить сброс, если что-то не так
@@ -28,6 +28,10 @@ bool DBase::createTables()
                     "name VARCHAR(50) NOT NULL, "
                     "refull INT NOT NULL,"
                     "chip BOOLEAN NOT NULL,  "
+                    "chipModel VARCHAR(50) DEFAULT NULL,  "
+                    "color VARCHAR(10) DEFAULT NULL,  "
+                    "site VARCHAR(100) DEFAULT NULL,  "
+                    "photo BLOB DEFAULT NULL,  "
                     "PRIMARY KEY (id));");
         if (!check) throw Exception("Create Table cartridges"); //Кричим, если табличка не создается
         //Принтеры
@@ -79,3 +83,4 @@ bool DBase::createTables()
     }
     return true;
 }
+*/

@@ -1,4 +1,4 @@
-#HELLO CATRIDGEBASE
+
 
 QT+=widgets
 QT+=sql #Без него БД работать не будут
@@ -21,10 +21,9 @@ HEADERS += \
     autoritation.h
 
 FORMS += \
-    mainwindow.ui \
+    mainwindow.ui\
     autoritation.ui
 
 RESOURCES += \
     resources.qrc
 
-DISTFILES +=
