@@ -129,7 +129,7 @@ bool DBase::Enter(QString user, QString password)
         if(query->value(0).toString() == password) return true;
         else return false;
     }
-    return false;
+    else return false;
 }
 DBase::~DBase()
 {
