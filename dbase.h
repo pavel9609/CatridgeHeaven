@@ -18,14 +18,14 @@ public:
     bool insertPrinter();                                                               //Для вставки принтера
     QVector<QVector<QVariant>> selectPrinters();                                        //Выбираем принтеры
     QVector<QVector<QVariant>> selectCartridges();                                      //Выбираем картриджи
-    QVector<QVector<QVariant>> selectCompatibilities();                                 //Выбираем связи
+    QVector<QVector<QVariant> > selectCompatibilities();                                //Выбираем связи
     bool Enter(QString user,QString password);                                          //Функция входа
-
+    QSqlRelationalTableModel* model();
 private:
     QSqlDatabase db;                                                                    //База данных
     QSqlQuery* query;                                                                   //Объект запросов
     bool check;                                                                         //Логическая пересенная для проверок, что бы в if не совать запросы
-    QSqlRelationalTableModel* model;
+    QSqlRelationalTableModel* _model;                                                    //Модель
 
 };
 

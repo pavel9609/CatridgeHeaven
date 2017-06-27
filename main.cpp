@@ -7,7 +7,7 @@
 
 int main(int argc, char** argv)
 {
-    userName="";
+    userName="";    //Очищаем имя пользователя (привет паранойя)
     QApplication app(argc,argv);
     QTranslator translator;
     translator.load("qt_ru.qm");
