@@ -3,6 +3,6 @@
         <file>images/auth.png</file>
         <file>images/error.png</file>
         <file>images/exit.png</file>
-        <file>stlye/style.css</file>
+        <file>style/style.css</file>
     </qresource>
 </RCC>
