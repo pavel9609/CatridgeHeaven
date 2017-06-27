@@ -29,4 +29,3 @@ RESOURCES += \
 FORMS += \
     mainwindow.ui
 
-RESOURCES +=

@@ -9,13 +9,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    this->setFixedSize(470,210);
-    QPixmap back(":/images/auth.png");
+    //ui->verticalLayout->addWidget(auth);
+   // this->setFixedSize(470,210);
+   /* QPixmap back(":/images/auth.png");
     back=back.scaled(this->size(),Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background,back);
-    this->setPalette(palette);
+    this->setPalette(palette);*/
     this->setWindowFlags(Qt::CustomizeWindowHint);
     QFile styleF;
     styleF.setFileName("style.css");
@@ -35,13 +35,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_exitButton_clicked()
 {
-    QMessageBox mBox;
+   /* QMessageBox mBox;
     mBox.setWindowTitle(tr("CartridgeHeaven"));
     mBox.setText(tr("Вы действительно хотите выйти?"));
     mBox.setStandardButtons(QMessageBox::Yes|QMessageBox::No);
     mBox.setButtonText(QMessageBox::Yes, tr("Да"));
     mBox.setButtonText(QMessageBox::No, tr("Нет"));
-    if (mBox.exec()==QMessageBox::Yes)
+    if (mBox.exec()==QMessageBox::Yes)*/
     qApp->quit();
 }
 void MainWindow::on_Printers_clicked(bool checked)

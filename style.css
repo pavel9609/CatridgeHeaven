@@ -11,6 +11,63 @@
     font-size: 10px;
  }
 
+ #Cartriges, #Partii, #Printers, #Reports, #Table, #Zayavki, #signOut, #setting{
+   background-color: transparent;
+   background-repeat: none;
+   color: white;
+   border: none;
+ }
+
+ #printPic{
+   background-color: transparent;
+   background-repeat: none;
+   border-image: url(printIcon.png);
+   border: none;
+ }
+
+ #cartPic{
+   background-color: transparent;
+   background-repeat: none;
+   border-image: url(images/cartIcon.png);
+   border: none;
+ }
+
+ #tablePic{
+   background-color: transparent;
+   background-repeat: none;
+   border-image: url(images/tableIcon.png);
+   border: none;
+ }
+
+ #panelPic{
+   background-color: transparent;
+   background-repeat: none;
+   border-image: url(images/panelIcon.png);
+   border: none;
+ }
+
+ #repairPic{
+   background-color: transparent;
+   background-repeat: none;
+   border-image: url(images/repairIcon.png);
+   border: none;
+ }
+
+ #reportPic{
+   background-color: transparent;
+   background-repeat: none;
+   border-image: url(images/reportIcon.png);
+   border: none;
+ }
+
+ #frame{
+   background-image:url(images/leftPanel.png);
+ }
+
+ #frame_2{
+   background-image:url(images/rightPanel.png);
+ }
+
 QLineEdit {
   border: 1px solid gray;
   border-radius: 10px;
@@ -30,7 +87,7 @@ QLineEdit {
 #exitButton {
   background-color: transparent;
   background-repeat: none;
-  border-image: url(exit.png);
+  border-image: url(images/exit.png);
   border: none;
 
 }
@@ -38,6 +95,6 @@ QLineEdit {
 #errPic{
   background-color: transparent;
   background-repeat: none;
-  border-image: url(error.png);
+  border-image: url(images/error.png);
   border: none;
 }

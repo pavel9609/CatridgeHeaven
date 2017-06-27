@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "dbase.h"
+#include"autoritation.h"
+#include<QVBoxLayout>
 
 namespace Ui {
 class MainWindow;
