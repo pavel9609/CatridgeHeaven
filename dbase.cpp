@@ -116,3 +116,15 @@ QVector<QVector<QVariant>> DBase::selectCompatibilities()
     }
     return v;
 }
+bool DBase::Enter(QString user, QString password)
+{
+    bool check = query->prepare("SELECT password FROM Workers WHERE UserName=:name");
+    query->bindValue(":name",user);
+    query->exec();
+    if(query->next())
+    {
+        if(query->value(0).toString() == password) return true;
+        else return false;
+    }
+    return false;
+}

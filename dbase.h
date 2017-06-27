@@ -16,6 +16,7 @@ public:
     QVector<QVector<QVariant>> selectPrinters();
     QVector<QVector<QVariant>> selectCartridges();
     QVector<QVector<QVariant>> selectCompatibilities();
+    bool Enter(QString user,QString password);
 private:
     QSqlDatabase db;                                                                    //База данных
     QSqlQuery* query;                                                                   //Объект запросов
