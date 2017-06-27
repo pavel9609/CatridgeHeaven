@@ -3,5 +3,6 @@
         <file>exit.png</file>
 	<file>auth.png</file>
 	<file>error.png</file>
+	<file>style.css</file>
     </qresource>
 </RCC>

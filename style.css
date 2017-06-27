@@ -1,0 +1,43 @@
+#topLabel {
+  font: Comic Sans MS;
+   font-weight:bold;
+   color: white;
+   font-size: 20px;
+ }
+
+ #errorLabel {
+    font: Comic Sans MS;
+    color: red;
+    font-size: 10px;
+ }
+
+QLineEdit {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 0 8px;
+  color:grey;
+}
+
+#signInButton {
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+#signInButton:pressed{
+  background-color: gray;
+}
+#exitButton {
+  background-color: transparent;
+  background-repeat: none;
+  border-image: url(exit.png);
+  border: none;
+
+}
+
+#errPic{
+  background-color: transparent;
+  background-repeat: none;
+  border-image: url(error.png);
+  border: none;
+}
