@@ -118,9 +118,11 @@ QVector<QVector<QVariant>> DBase::selectCompatibilities()
 }
 bool DBase::Enter(QString user, QString password)
 {
-    bool check = query->prepare("SELECT password FROM Workers WHERE UserName=:name");
-    query->bindValue(":name",user);
-    query->exec();
+    bool check = query->prepare("SELECT password FROM Workers WHERE UserName=:name");   //Готовим запрос
+    if (!check) throw ("Enter prepare");
+    query->bindValue(":name",user); //Вставляем имя пользователя
+    bool check = query->exec();  //Выполняем
+    if(!check) throw ("Enter exec");
     if(query->next())
     {
         if(query->value(0).toString() == password) return true;
