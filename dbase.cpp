@@ -122,7 +122,7 @@ bool DBase::Enter(QString user, QString password)
     if (!check) throw ("Enter prepare");
     query->bindValue(":name",user); //Вставляем имя пользователя
     check = query->exec();  //Выполняем
-    if(!check) throw ("Enter exec");
+    if(!check) throw ("Enter exec");    //Если что-то не выполнилось
     if(query->next())
     {
         if(query->value(0).toString() == password) return true;
