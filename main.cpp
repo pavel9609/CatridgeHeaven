@@ -1,15 +1,14 @@
 #include <QApplication>
 #include <QDebug>
 #include "mainwindow.h"
+#include"autoritation.h"
 
 int main(int argc, char** argv)
 {
     QApplication app(argc,argv);
-    qDebug()<<"Hello Git 2";
-    qDebug()<<"Skoro obedcss!";
-    //sdsjdbxscscscxzxzx
-    //sdljsldk
+    Autoritation auth;
     MainWindow w;
     w.show();
+    auth.show();
     return app.exec();
 }

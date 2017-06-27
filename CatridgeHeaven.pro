@@ -11,11 +11,20 @@ CONFIG-=app_bundle
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    dbase.cpp
+    dbase.cpp \
+    autoritation.cpp
 
 HEADERS += \
     mainwindow.h \
-    dbase.h
+    dbase.h \
+    exception.h \
+    autoritation.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    autoritation.ui
+
+RESOURCES += \
+    resources.qrc
+
+DISTFILES +=

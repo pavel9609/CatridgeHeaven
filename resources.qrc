@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>exit.png</file>
+	<file>auth.png</file>
+	<file>error.png</file>
+    </qresource>
+</RCC>
