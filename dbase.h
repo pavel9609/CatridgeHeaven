@@ -5,12 +5,13 @@
 #include <QDebug>               //Для дебага
 #include <QSqlRelationalTableModel>
 #include "exception.h"          //Для Исключений
+#include "global.h"
 
 class DBase                     //Класс для работы с БД, nuff said
 {
 public:
     DBase();                                                                            //Стандартный конструктор
-    ~DBase();
+    ~DBase();                                                                           //Деструктор
     bool insertCartridge(QString brand, QString name, int refull,
                   bool chip, QString chipModel, QString site, QPixmap photo);           //Для вставки катриджа
     bool insertWorker();                                                                //Для вставки работника

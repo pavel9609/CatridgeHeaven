@@ -16,7 +16,8 @@ HEADERS += \
     mainwindow.h \
     dbase.h \
     exception.h \
-    autoritation.h
+    autoritation.h \
+    global.h
 
 FORMS += \
     mainwindow.ui\

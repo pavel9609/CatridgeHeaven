@@ -99,6 +99,7 @@ QVector<QVector<QVariant>> DBase::selectCompatibilities()
         qDebug()<<e.Error()<<query->lastError();
         return v;
     }
+
     return v;
 }
 bool DBase::Enter(QString user, QString password)
@@ -108,14 +109,18 @@ bool DBase::Enter(QString user, QString password)
     query->bindValue(":name",user); //Вставляем имя пользователя
     check = query->exec();  //Выполняем
     if(!check) throw ("Enter exec");    //Если что-то не выполнилось
-    if(query->next())   {
-        if(query->value(0).toString() == password) return true;
-        else return false;
+    if(query->next())   {   //Пользователь найден
+        if(query->value(0).toString() == password)
+        {
+            userName=user;
+            return true;
+        }
+        else false;
     }
-    else return false;
+    else return false; //Пользователь не найден
 }
 DBase::~DBase()
 {
-    delete query;
-    delete model;
+    delete query;   //Удаляем запрос
+    delete model;   //Удаляем модель
 }
