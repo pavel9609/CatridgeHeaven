@@ -19,8 +19,8 @@ DBase::DBase()
 }
 QVector<QVector<QVariant>> DBase::selectPrinters()
 {
-    QVector<QVariant> _v;
-    QVector<QVector<QVariant>> v;
+    QVector<QVariant> _v;   //Вектор вариантов
+    QVector<QVector<QVariant>> v;   //Вектор векторов вариантов
     try
     {
         check = query->exec("SELECT * FROM Printers");

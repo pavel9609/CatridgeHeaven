@@ -10,13 +10,14 @@ class DBase                     //Класс для работы с БД, nuff s
 {
 public:
     DBase();                                                                            //Стандартный конструктор
-    bool insertCartridge(QString brand, QString name, int refull, bool chip, QString chipModel, QString site, QPixmap photo);           //Для вставки катриджа
+    bool insertCartridge(QString brand, QString name, int refull,
+                  bool chip, QString chipModel, QString site, QPixmap photo);           //Для вставки катриджа
     bool insertWorker();                                                                //Для вставки работника
     bool insertPrinter();                                                               //Для вставки принтера
-    QVector<QVector<QVariant>> selectPrinters();
-    QVector<QVector<QVariant>> selectCartridges();
-    QVector<QVector<QVariant>> selectCompatibilities();
-    bool Enter(QString user,QString password);
+    QVector<QVector<QVariant>> selectPrinters();                                        //Выбираем принтеры
+    QVector<QVector<QVariant>> selectCartridges();                                      //Выбираем картриджи
+    QVector<QVector<QVariant>> selectCompatibilities();                                 //Выбираем связи
+    bool Enter(QString user,QString password);                                          //Функция входа
 private:
     QSqlDatabase db;                                                                    //База данных
     QSqlQuery* query;                                                                   //Объект запросов
