@@ -9,6 +9,7 @@ DBase::DBase()
         db.setDatabaseName(QDir::currentPath()+"/Cartridge.sqlite");    //Отправляем к исполняемому файлу
         if (!db.open()) throw Exception("Open");    //Открываем и кричим, если что-то не так.
         query = new QSqlQuery(db);  //Связываем запрос с базой
+        model = new QSqlRelationalTableModel(0,db);
 
     }
     catch(Exception e)
@@ -129,4 +130,9 @@ bool DBase::Enter(QString user, QString password)
         else return false;
     }
     return false;
+}
+DBase::~DBase()
+{
+    delete query;
+    delete model;
 }

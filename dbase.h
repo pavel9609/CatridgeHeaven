@@ -3,13 +3,14 @@
 
 #include <QtSql>                //Заголовок для БД
 #include <QDebug>               //Для дебага
-
+#include <QSqlRelationalTableModel>
 #include "exception.h"          //Для Исключений
 
 class DBase                     //Класс для работы с БД, nuff said
 {
 public:
     DBase();                                                                            //Стандартный конструктор
+    ~DBase();
     bool insertCartridge(QString brand, QString name, int refull,
                   bool chip, QString chipModel, QString site, QPixmap photo);           //Для вставки катриджа
     bool insertWorker();                                                                //Для вставки работника
@@ -18,10 +19,12 @@ public:
     QVector<QVector<QVariant>> selectCartridges();                                      //Выбираем картриджи
     QVector<QVector<QVariant>> selectCompatibilities();                                 //Выбираем связи
     bool Enter(QString user,QString password);                                          //Функция входа
+
 private:
     QSqlDatabase db;                                                                    //База данных
     QSqlQuery* query;                                                                   //Объект запросов
     bool check;                                                                         //Логическая пересенная для проверок, что бы в if не совать запросы
+    QSqlRelationalTableModel* model;
 
 };
 
