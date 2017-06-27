@@ -3,5 +3,9 @@
         <file>images/auth.png</file>
         <file>images/error.png</file>
         <file>images/exit.png</file>
+<<<<<<< HEAD
+=======
+        <file>style/style.css</file>
+>>>>>>> 33b47d0b743d58eae5efbcc83ac19e38507ea768
     </qresource>
 </RCC>

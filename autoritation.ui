@@ -89,6 +89,10 @@
    <property name="text">
     <string/>
    </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/exit.png</normaloff>:/images/exit.png</iconset>
+   </property>
   </widget>
   <widget class="QLabel" name="errorLabel">
    <property name="geometry">
@@ -115,8 +119,14 @@
    <property name="text">
     <string/>
    </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/error.png</normaloff>:/images/error.png</iconset>
+   </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

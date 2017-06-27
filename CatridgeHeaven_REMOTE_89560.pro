@@ -1,3 +1,5 @@
+#HELLO CATRIDGEBASE
+
 QT+=widgets
 QT+=sql #Без него БД работать не будут
 
@@ -9,24 +11,14 @@ CONFIG-=app_bundle  #Для работы на mac
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    dbase.cpp \
-    autoritation.cpp
+    dbase.cpp
 
 HEADERS += \
     mainwindow.h \
     dbase.h \
-    exception.h \
-    autoritation.h \
-    global.h
-
-FORMS += \
-    mainwindow.ui\
-    autoritation.ui
-
-RESOURCES += \
-    resources.qrc
-
+    exception.h
 
 FORMS += \
     mainwindow.ui
 
+RESOURCES +=

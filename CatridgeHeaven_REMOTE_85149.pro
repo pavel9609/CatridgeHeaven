@@ -1,3 +1,5 @@
+#HELLO CATRIDGEBASE
+
 QT+=widgets
 QT+=sql #Без него БД работать не будут
 
@@ -10,23 +12,11 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     dbase.cpp \
-    autoritation.cpp
 
 HEADERS += \
     mainwindow.h \
     dbase.h \
     exception.h \
-    autoritation.h \
-    global.h
-
-FORMS += \
-    mainwindow.ui\
-    autoritation.ui
-
-RESOURCES += \
-    resources.qrc
-
 
 FORMS += \
     mainwindow.ui
-
