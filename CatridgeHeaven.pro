@@ -1,12 +1,10 @@
-
-
 QT+=widgets
 QT+=sql #Без него БД работать не будут
 
 TEMPLATE = app
 TARGET = CartridgeHeaven
 INCLUDEPATH += .
-CONFIG-=app_bundle
+CONFIG-=app_bundle  #Для работы на mac
 
 SOURCES += \
     main.cpp \
@@ -27,3 +25,8 @@ FORMS += \
 RESOURCES += \
     resources.qrc
 
+
+FORMS += \
+    mainwindow.ui
+
+RESOURCES +=

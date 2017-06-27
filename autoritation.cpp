@@ -63,4 +63,5 @@ void Autoritation::signIn()
 {
     ui->errPic->show();
     ui->errorLabel->show();
+
 }

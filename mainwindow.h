@@ -18,6 +18,11 @@ public:
 
 private slots:
     void on_exitButton_clicked();
+    void on_Printers_clicked(bool checked);
+
+    void on_Cartriges_clicked();
+
+    void on_Table_clicked();
 
 private:
     Ui::MainWindow *ui;

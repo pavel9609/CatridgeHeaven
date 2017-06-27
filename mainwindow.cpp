@@ -39,6 +39,42 @@ void MainWindow::on_exitButton_clicked()
     mBox.setWindowTitle(tr("CartridgeHeaven"));
     mBox.setText(tr("Вы действительно хотите выйти?"));
     mBox.setStandardButtons(QMessageBox::Yes|QMessageBox::No);
+    mBox.setButtonText(QMessageBox::Yes, tr("Да"));
+    mBox.setButtonText(QMessageBox::No, tr("Нет"));
     if (mBox.exec()==QMessageBox::Yes)
     qApp->quit();
+}
+void MainWindow::on_Printers_clicked(bool checked)
+{
+    qDebug()<<dbase.selectPrinters();
+}
+
+void MainWindow::on_Cartriges_clicked()
+{
+    auto cart = dbase.selectCartridges();
+    //Debugenko
+    for(auto it = cart.begin();it!=cart.end();it++)
+    {
+        QDebug debug = qDebug();
+        for(auto iit = it->begin();iit!=it->end();iit++)
+        {
+            debug<<iit;
+        }
+        debug.~QDebug();
+    }
+}
+
+void MainWindow::on_Table_clicked()
+{
+    auto cart = dbase.selectCompatibilities();
+    //Debugenko
+    for(auto it = cart.begin();it!=cart.end();it++)
+    {
+        QDebug debug = qDebug();
+        for(auto iit = it->begin();iit!=it->end();iit++)
+        {
+            debug<<iit->toString();
+        }
+        debug.~QDebug();
+    }
 }

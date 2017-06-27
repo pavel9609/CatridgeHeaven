@@ -13,6 +13,9 @@ public:
     bool insertCartridge(QString brand, QString name, int refull, bool chip, QString chipModel, QString site, QPixmap photo);           //Для вставки катриджа
     bool insertWorker();                                                                //Для вставки работника
     bool insertPrinter();                                                               //Для вставки принтера
+    QVector<QVector<QVariant>> selectPrinters();
+    QVector<QVector<QVariant>> selectCartridges();
+    QVector<QVector<QVariant>> selectCompatibilities();
 private:
     QSqlDatabase db;                                                                    //База данных
     QSqlQuery* query;                                                                   //Объект запросов

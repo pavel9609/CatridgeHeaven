@@ -1,5 +1,6 @@
-<!DOCTYPE RCC><RCC version="1.0">
- <qresource>
-     <file>qt_ru.qm</file>
- </qresource>
- </RCC>
+<RCC>
+    <qresource prefix="/">
+        <file>qt_ru.qm</file>
+        <file>../../../../Qt/5.8/clang_64/translations/qt_ru.qm</file>
+    </qresource>
+</RCC>

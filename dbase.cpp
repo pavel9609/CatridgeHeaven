@@ -9,6 +9,7 @@ DBase::DBase()
         db.setDatabaseName(QDir::currentPath()+"/Cartridge.sqlite");    //Отправляем к исполняемому файлу
         if (!db.open()) throw Exception("Open");    //Открываем и кричим, если что-то не так.
         query = new QSqlQuery(db);  //Связываем запрос с базой
+
     }
     catch(Exception e)
     {
@@ -16,71 +17,102 @@ DBase::DBase()
         else qDebug()<<e.Error()<<query->lastError().text(); //Ошибка, которую мы указали и ошибка базы данных
     }
 }
-/*
-bool DBase::createTables()
+QVector<QVector<QVariant>> DBase::selectPrinters()
 {
-    try //Чтобы облегчить сброс, если что-то не так
+    QVector<QVariant> _v;
+    QVector<QVector<QVariant>> v;
+    try
     {
-        //Картриджи
-        check = query->exec("CREATE TABLE IF NOT EXISTS cartridges(" //Создаём таблицу катриджей
-                    "id INTEGER, "
-                    "brand VARCHAR(50) NOT NULL,"
-                    "name VARCHAR(50) NOT NULL, "
-                    "refull INT NOT NULL,"
-                    "chip BOOLEAN NOT NULL,  "
-                    "chipModel VARCHAR(50) DEFAULT NULL,  "
-                    "color VARCHAR(10) DEFAULT NULL,  "
-                    "site VARCHAR(100) DEFAULT NULL,  "
-                    "photo BLOB DEFAULT NULL,  "
-                    "PRIMARY KEY (id));");
-        if (!check) throw Exception("Create Table cartridges"); //Кричим, если табличка не создается
-        //Принтеры
-        check = query->exec("CREATE TABLE IF NOT EXISTS printers(" //Создаём таблицу принтеров
-                    "id INTEGER, "
-                    "name VARCHAR(50) NOT NULL, "
-                    "coloured BOOLEAN NOT NULL,  "
-                    "PRIMARY KEY (id));");
-        if (!check) throw Exception("Create Table printers");
-        //Совместимости
-        check = query->exec("CREATE TABLE IF NOT EXISTS compatibility(" //Создаём таблицу принтеров
-                    "cartridgeID INT NOT NULL, "
-                    "printerID INT NOT NULL,  "
-                    "PRIMARY KEY (cartridgeID,printerID),"
-                    "FOREIGN KEY(cartridgeID) REFERENCES cartridges(id),"
-                    "FOREIGN KEY(printerID) REFERENCES printers(id)"
-                    ");");
-        if (!check) throw Exception("Create Table compatibility");
-        //Работники
-        check = query->exec("CREATE TABLE IF NOT EXISTS  workers(" //Создаём таблицу работников
-                    "id INTEGER, "
-                    "name VARCHAR(50) NOT NULL, "
-                    "surname VARCHAR(50) NOT NULL,  "
-                    "username VARCHAR(50) NOT NULL,  "
-                    "password VARCHAR(50) NOT NULL,  "
-                    "position VARCHAR(50) NOT NULL,  "
-                    "PRIMARY KEY (id));");
-        if (!check) throw Exception("Create Table workers");
-        //Заявки
-        check = query->exec("CREATE TABLE IF NOT EXISTS  applications(" //Создаём таблицу работников
-                    "id INTEGER, "
-                    "cartridgeID INT NOT NULL, "
-                    "workerID INT NOT NULL, "
-                    "victimName VARCHAR(50) NOT NULL, "
-                    "victimSurname VARCHAR(50) NOT NULL, "
-                    "victimPatron VARCHAR(50) NOT NULL, "
-                    "comment VARCHAR(500) NOT NULL, "
-                    "applicationTime DATETIME NOT NULL, "
-                    "PRIMARY KEY (id),"
-                    "FOREIGN KEY(cartridgeID) REFERENCES cartridges(id),"
-                    "FOREIGN KEY(workerID) REFERENCES workers(id)"
-                    ");");
-        if (!check) throw Exception("Create Table applications");
+        check = query->exec("SELECT * FROM Printers");
+        if (!check) throw Exception("Printer selection Error");
+        while (query->next()) {
+                for (int i = 1;i<query->size();i++)
+                {
+                    _v.push_back(query->value(i));
+                }
+                v.push_back(_v);
+                _v.clear();
+            }
     }
     catch(Exception e)
     {
-        qDebug()<<e.Error()<<query->lastError().text(); //Ошибка, которую мы указали и ошибка базы данных
-        return false;
+        v.clear();
+        qDebug()<<e.Error()<<query->lastError();
+        return v;
     }
-    return true;
+    return v;
+
 }
-*/
+QVector<QVector<QVariant>> DBase::selectCartridges()
+{
+    QVector<QVariant> _v;
+    QVector<QVector<QVariant>> v;
+    try
+    {
+        check = query->exec("SELECT * FROM Cartridges");
+        if (!check) throw Exception("Cartridge selection Error");
+        while (query->next()) {
+                int type = query->value(3).toInt();
+                QSqlQuery query2(db);
+                check = query2.prepare("SELECT * From CartridgeTypes WHERE id = :id");
+                query2.bindValue(":id",type);
+                if(!query2.exec()) throw ("Types Error");
+                while(query2.next())
+                {
+
+                    _v<<query2.value(1)<<query2.value(2)<<query2.value(3)<<query2.value(4)<<
+                              query2.value(5)<<query2.value(6)<<query2.value(7)<<query->value(1)<<query->value(2);
+                }
+                v.push_back(_v);
+                _v.clear();
+            }
+    }
+    catch(Exception e)
+    {
+        v.clear();
+        qDebug()<<e.Error()<<query->lastError();
+        return v;
+    }
+    return v;
+}
+QVector<QVector<QVariant>> DBase::selectCompatibilities()
+{
+    QVector<QVariant> _v;
+    QVector<QVector<QVariant>> v;
+    try
+    {
+        check = query->exec("SELECT * FROM Compatibility");
+        if (!check) throw Exception("Comp selection Error");
+        while (query->next()) {
+                QSqlQuery query2(db),query3(db);
+                int cartridge = query->value(0).toInt();
+                int printer = query->value(1).toInt();
+                check = query2.prepare("SELECT Name From CartridgeTypes WHERE id = :id");
+                query2.bindValue(":id",cartridge);
+                if (!check) throw ("types not prepares");
+                check = query2.exec();
+                if (!check) throw ("types not execute");
+                while(query2.next())
+                {
+                    _v.push_back(query2.value(2));
+                }
+                check = query3.prepare("SELECT Name From Printers WHERE id = :id");
+                query3.bindValue(":id",printer);
+                query3.exec();
+                while(query3.next())
+                {
+                    _v.push_back(query3.value(1));
+                }
+                v.push_back(_v);
+                _v.clear();
+
+            }
+    }
+    catch(Exception e)
+    {
+        v.clear();
+        qDebug()<<e.Error()<<query->lastError();
+        return v;
+    }
+    return v;
+}

@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QDebug>
 #include "mainwindow.h"
+#include "autoritation.h"
 #include <QTranslator>
 int main(int argc, char** argv)
 {
@@ -10,5 +11,7 @@ int main(int argc, char** argv)
     app.installTranslator(&translator);
     MainWindow w;
     w.show();
+    Autoritation a;
+    a.show();
     return app.exec();
 }
