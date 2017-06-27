@@ -307,8 +307,6 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout"/>
    </widget>
-<<<<<<< HEAD
-=======
    <widget class="QPushButton" name="exitButton">
     <property name="geometry">
      <rect>
@@ -336,7 +334,6 @@
      <height>22</height>
     </rect>
    </property>
->>>>>>> 33b47d0b743d58eae5efbcc83ac19e38507ea768
   </widget>
  </widget>
  <resources>

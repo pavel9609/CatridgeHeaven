@@ -35,13 +35,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_exitButton_clicked()
 {
-   /* QMessageBox mBox;
+   QMessageBox mBox;
     mBox.setWindowTitle(tr("CartridgeHeaven"));
     mBox.setText(tr("Вы действительно хотите выйти?"));
     mBox.setStandardButtons(QMessageBox::Yes|QMessageBox::No);
     mBox.setButtonText(QMessageBox::Yes, tr("Да"));
     mBox.setButtonText(QMessageBox::No, tr("Нет"));
-    if (mBox.exec()==QMessageBox::Yes)*/
+    if (mBox.exec()==QMessageBox::Yes)
     qApp->quit();
 }
 void MainWindow::on_Printers_clicked(bool checked)

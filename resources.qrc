@@ -3,9 +3,15 @@
         <file>images/auth.png</file>
         <file>images/error.png</file>
         <file>images/exit.png</file>
-<<<<<<< HEAD
-=======
         <file>style/style.css</file>
->>>>>>> 33b47d0b743d58eae5efbcc83ac19e38507ea768
+        <file>images/cartIcon.png</file>
+        <file>images/leftPanel.png</file>
+        <file>images/panelIcon.png</file>
+        <file>images/printIcon.png</file>
+        <file>images/repairIcon.png</file>
+        <file>images/reportIcon.png</file>
+        <file>images/rightPanel.jpg</file>
+        <file>images/rightPanel.png</file>
+        <file>images/tableIcon.png</file>
     </qresource>
 </RCC>
