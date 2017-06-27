@@ -25,7 +25,7 @@ private:
     QSqlDatabase db;                                                                    //База данных
     QSqlQuery* query;                                                                   //Объект запросов
     bool check;                                                                         //Логическая пересенная для проверок, что бы в if не совать запросы
-    QSqlRelationalTableModel* _model;                                                    //Модель
+    QSqlRelationalTableModel* _model;                                                   //Модель
 
 };
 
