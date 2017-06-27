@@ -121,7 +121,7 @@ bool DBase::Enter(QString user, QString password)
     bool check = query->prepare("SELECT password FROM Workers WHERE UserName=:name");   //Готовим запрос
     if (!check) throw ("Enter prepare");
     query->bindValue(":name",user); //Вставляем имя пользователя
-    bool check = query->exec();  //Выполняем
+    check = query->exec();  //Выполняем
     if(!check) throw ("Enter exec");
     if(query->next())
     {

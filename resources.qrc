@@ -1,8 +1,8 @@
 <RCC>
-    <qresource prefix="/images">
-        <file>exit.png</file>
-	<file>auth.png</file>
-	<file>error.png</file>
-	<file>style.css</file>
+    <qresource prefix="/">
+        <file>images/auth.png</file>
+        <file>images/error.png</file>
+        <file>images/exit.png</file>
+        <file>stlye/style.css</file>
     </qresource>
 </RCC>

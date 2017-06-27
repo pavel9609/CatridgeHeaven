@@ -14,7 +14,7 @@ Autoritation::Autoritation(QWidget *parent) :
     this->setWindowFlags(Qt::CustomizeWindowHint);
 
     QFile styleF;
-    styleF.setFileName("style.css");
+    styleF.setFileName("/style/style.css");
     styleF.open(QFile::ReadOnly);
     QString qssStr = styleF.readAll();
 

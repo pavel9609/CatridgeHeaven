@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setPalette(palette);
     this->setWindowFlags(Qt::CustomizeWindowHint);
     QFile styleF;
-    styleF.setFileName("style.css");
+    styleF.setFileName("/style/style.css");
     styleF.open(QFile::ReadOnly);
     QString qssStr=styleF.readAll();
     this->setStyleSheet(qssStr);
