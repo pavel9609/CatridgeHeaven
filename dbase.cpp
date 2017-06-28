@@ -17,25 +17,6 @@ DBase::DBase()
         else qDebug()<<e.Error()<<query->lastError().text(); //Ошибка, которую мы указали и ошибка базы данных
     }
 }
-QVector<QVector<QVariant> > DBase::selectPrinters()
-{
-    QVector<QVariant> _v;   //Вектор вариантов
-    QVector<QVector<QVariant>> v;   //Вектор векторов вариантов
-    return v;
-
-}
-QVector<QVector<QVariant>> DBase::selectCartridges()
-{
-    QVector<QVariant> _v;
-    QVector<QVector<QVariant>> v;
-    return v;
-}
-QVector<QVector<QVariant>> DBase::selectCompatibilities()
-{
-    QVector<QVariant> _v;
-    QVector<QVector<QVariant>> v;
-    return v;
-}
 bool DBase::Enter(QString user, QString password)
 {
     check = query->prepare("SELECT password FROM Workers WHERE UserName=:name");   //Готовим запрос
@@ -44,8 +25,7 @@ bool DBase::Enter(QString user, QString password)
     check = query->exec();  //Выполняем
     if(!check) throw ("Enter exec");    //Если что-то не выполнилось
     if(query->next())   {   //Пользователь найден
-        if(query->value(0).toString() == password)
-        {
+        if(query->value(0).toString() == password)  {
             userName=user;
             check = query->prepare("SELECT Privilege FROM Workers WHERE UserName=:name");
             if(!check) throw ("Get Privelegion exec");
@@ -53,13 +33,9 @@ bool DBase::Enter(QString user, QString password)
             check = query->exec();  //Выполняем
             if(!check) throw ("Get Privelegion exec");
             if(query->next()) userPrivilegions = query->value(0).toLongLong();
-            qDebug()<<query->value(0);
-            qDebug()<<userPrivilegions;
             return true;
-        }
-        else false;
-    }
-    else return false; //Пользователь не найден
+        }   else false;
+    }   else return false; //Пользователь не найден
 }
 DBase::~DBase()
 {

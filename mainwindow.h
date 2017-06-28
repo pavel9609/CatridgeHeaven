@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include "dbase.h"
 #include"autoritation.h"
+#include"printwidget.h"
+#include"addprintwidget.h"
 #include<QVBoxLayout>
 
 namespace Ui {
@@ -20,7 +22,7 @@ public:
 
 private slots:
     void on_exitButton_clicked();
-    void on_Printers_clicked(bool checked);
+    void on_Printers_clicked();
 
     void on_Cartriges_clicked();
 
@@ -28,6 +30,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    PrintWidget* printWidget;
     DBase* dbase;
 };
 

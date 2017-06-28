@@ -8,6 +8,7 @@
 #include<QPoint>
 #include<QFile>
 #include"dbase.h"
+#include"mainwindow.h"
 
 
 namespace Ui {
@@ -33,7 +34,7 @@ private:
     void mouseMoveEvent(QMouseEvent *e);
     void mousePressEvent(QMouseEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
-    DBase*  db;
+    DBase  *db;
 };
 
 #endif // AUTORITATION_H

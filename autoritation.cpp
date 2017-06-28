@@ -62,9 +62,17 @@ void Autoritation::mouseReleaseEvent(QMouseEvent *e)
 
 void Autoritation::signIn()
 {
-    if(!db->Enter(ui->loginLine->text(),ui->passwordLine->text())){
+    bool check = db->Enter(ui->loginLine->text(),ui->passwordLine->text());
+    if (check){
+        this->hide();
+        MainWindow* window = new MainWindow;
+        window->show();
+    }
+    else
+    {
         ui->errPic->show();
         ui->errorLabel->show();
     }
+
 
 }

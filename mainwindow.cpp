@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    printWidget = new PrintWidget;
     //ui->verticalLayout->addWidget(auth);
    // this->setFixedSize(470,210);
    /* QPixmap back(":/images/auth.png");
@@ -25,7 +26,8 @@ MainWindow::MainWindow(QWidget *parent) :
     /*QPixmap pixmap("C:\\Users\\Var\\Desktop\\RosAtom_logo_rus.jpg");
     pixmap.scaled(ui->label->size().width(),ui->label->size().height(),Qt::IgnoreAspectRatio,Qt::FastTransformation);
     ui->label->setPixmap(pixmap);*/
-    dbase = DBase::instance();
+
+    connect(ui->Printers, SIGNAL(clicked(bool)),this,SLOT(on_Printers_clicked()));
 
 }
 
@@ -45,8 +47,9 @@ void MainWindow::on_exitButton_clicked()
     if (mBox.exec()==QMessageBox::Yes)
     qApp->quit();
 }
-void MainWindow::on_Printers_clicked(bool checked)
+void MainWindow::on_Printers_clicked()
 {
+    ui->verticalLayout->addWidget(printWidget);
 }
 
 void MainWindow::on_Cartriges_clicked()
