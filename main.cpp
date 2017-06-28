@@ -14,7 +14,7 @@ int main(int argc, char** argv)
     app.installTranslator(&translator);
     MainWindow w;
     w.show();
-   // Autoritation a;
-   // a.show();
+    Autoritation a;
+    a.show();
     return app.exec();
 }

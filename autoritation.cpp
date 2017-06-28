@@ -28,6 +28,7 @@ Autoritation::Autoritation(QWidget *parent) :
 
     connect(ui->exitButton, SIGNAL(clicked(bool)), this, SLOT(close()));
     connect(ui->signInButton, SIGNAL(clicked(bool)), this, SLOT(signIn()));
+    db = DBase::instance();
 
 }
 
@@ -61,7 +62,9 @@ void Autoritation::mouseReleaseEvent(QMouseEvent *e)
 
 void Autoritation::signIn()
 {
-    ui->errPic->show();
-    ui->errorLabel->show();
+    if(!db->Enter(ui->loginLine->text(),ui->passwordLine->text())){
+        ui->errPic->show();
+        ui->errorLabel->show();
+    }
 
 }

@@ -10,8 +10,7 @@
 class DBase                     //Класс для работы с БД, nuff said
 {
 public:
-    DBase();                                                                            //Стандартный конструктор
-    ~DBase();                                                                           //Деструктор
+
     bool insertCartridge(QString brand, QString name, int refull,
                   bool chip, QString chipModel, QString site, QPixmap photo);           //Для вставки катриджа
     bool insertWorker();                                                                //Для вставки работника
@@ -21,11 +20,15 @@ public:
     QVector<QVector<QVariant> > selectCompatibilities();                                //Выбираем связи
     bool Enter(QString user,QString password);                                          //Функция входа
     QSqlRelationalTableModel* model();
+    static DBase* instance();
 private:
+    static DBase* _instance;
     QSqlDatabase db;                                                                    //База данных
     QSqlQuery* query;                                                                   //Объект запросов
     bool check;                                                                         //Логическая пересенная для проверок, что бы в if не совать запросы
     QSqlRelationalTableModel* _model;                                                   //Модель
+    DBase();                                                                            //Стандартный конструктор
+    ~DBase();                                                                           //Деструктор
 
 };
 

@@ -28,7 +28,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    DBase dbase;
+    DBase* dbase;
 };
 
 #endif // MAINWINDOW_H

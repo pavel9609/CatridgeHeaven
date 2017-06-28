@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
     /*QPixmap pixmap("C:\\Users\\Var\\Desktop\\RosAtom_logo_rus.jpg");
     pixmap.scaled(ui->label->size().width(),ui->label->size().height(),Qt::IgnoreAspectRatio,Qt::FastTransformation);
     ui->label->setPixmap(pixmap);*/
+    dbase = DBase::instance();
 
 }
 
@@ -46,35 +47,12 @@ void MainWindow::on_exitButton_clicked()
 }
 void MainWindow::on_Printers_clicked(bool checked)
 {
-    qDebug()<<dbase.selectPrinters();
 }
 
 void MainWindow::on_Cartriges_clicked()
 {
-    auto cart = dbase.selectCartridges();
-    //Debugenko
-    for(auto it = cart.begin();it!=cart.end();it++)
-    {
-        QDebug debug = qDebug();
-        for(auto iit = it->begin();iit!=it->end();iit++)
-        {
-            debug<<iit;
-        }
-        debug.~QDebug();
-    }
 }
 
 void MainWindow::on_Table_clicked()
 {
-    auto cart = dbase.selectCompatibilities();
-    //Debugenko
-    for(auto it = cart.begin();it!=cart.end();it++)
-    {
-        QDebug debug = qDebug();
-        for(auto iit = it->begin();iit!=it->end();iit++)
-        {
-            debug<<iit->toString();
-        }
-        debug.~QDebug();
-    }
 }

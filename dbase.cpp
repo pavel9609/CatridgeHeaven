@@ -1,5 +1,7 @@
 #include "dbase.h"
 
+DBase* DBase::_instance = 0;
+
 DBase::DBase()
 {
     try     { //Чтобы облегчить сброс, если что-то не так
@@ -36,7 +38,7 @@ QVector<QVector<QVariant>> DBase::selectCompatibilities()
 }
 bool DBase::Enter(QString user, QString password)
 {
-    bool check = query->prepare("SELECT password FROM Workers WHERE UserName=:name");   //Готовим запрос
+    check = query->prepare("SELECT password FROM Workers WHERE UserName=:name");   //Готовим запрос
     if (!check) throw ("Enter prepare");
     query->bindValue(":name",user); //Вставляем имя пользователя
     check = query->exec();  //Выполняем
@@ -45,6 +47,14 @@ bool DBase::Enter(QString user, QString password)
         if(query->value(0).toString() == password)
         {
             userName=user;
+            check = query->prepare("SELECT Privilege FROM Workers WHERE UserName=:name");
+            if(!check) throw ("Get Privelegion exec");
+            query->bindValue(":name",user); //Вставляем имя пользователя
+            check = query->exec();  //Выполняем
+            if(!check) throw ("Get Privelegion exec");
+            if(query->next()) userPrivilegions = query->value(0).toLongLong();
+            qDebug()<<query->value(0);
+            qDebug()<<userPrivilegions;
             return true;
         }
         else false;
@@ -55,8 +65,17 @@ DBase::~DBase()
 {
     delete query;   //Удаляем запрос
     delete _model;   //Удаляем модель
+    delete _instance;
 }
 QSqlRelationalTableModel* DBase::model()
 {
     return _model;
+}
+DBase* DBase::instance()
+{
+    if (_instance == 0)
+    {
+        _instance = new DBase();
+    }
+    return _instance;
 }
